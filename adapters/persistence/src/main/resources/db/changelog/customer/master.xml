@@ -1,0 +1,164 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="andreisava">
+        <comment>create kunde table</comment>
+        <createTable tableName="kunde">
+            <column name="kundenid" type="numeric">
+                <constraints primaryKey="true" primaryKeyName="PK_CUSTOMER"
+                             nullable="false" />
+            </column>
+            <column name="vorname" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nachname" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false" unique="true"
+                             uniqueConstraintName="UC_EMAIL" primaryKey="true" primaryKeyName="PK_EMAIL"/>
+            </column>
+            <column name="strasse" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="strassenzusatz" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ort" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="land" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="plz" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firmenname" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="andreisava">
+        <comment>create sequence for customer table</comment>
+        <createSequence sequenceName="SEQ_CUSTOMER" cycle="false" incrementBy="50" startValue="5"/>
+    </changeSet>
+
+<!--    <changeSet id="3" author="andreisava"-->
+<!--               context="test-data">-->
+<!--        <loadData tableName="owner" file="test-data/users.csv" />-->
+<!--    </changeSet>-->
+
+    <changeSet id="3" author="andreisava">
+        <comment>add data</comment>
+
+        <sql splitStatements="true"
+        stripComments="true">
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('1', 'aut', 'cumque', 'mckenzie.lela@example.org', 'mbwi', 'vvxt', 'abmz', 'ecar', '2', 'a');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('2', 'aperiam', 'nisi', 'juliet62@example.net', 'piap', 'uhmw', 'bnns', 'hyac', '7', 'pariatur');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('3', 'placeat', 'quas', 'abshire.joanne@example.org', 'jlut', 'dosk', 'tkrg', 'ckqv', '3', 'odio');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('4', 'magni', 'dicta', 'pstehr@example.org', 'tkin', 'owsf', 'msgi', 'htcd', '8', 'eum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('5', 'cum', 'et', 'alexandro93@example.net', 'eqcn', 'unhi', 'mxfz', 'zpes', '8', 'ab');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('6', 'ad', 'tempore', 'preston.larson@example.com', 'fpqv', 'fggw', 'nydd', 'bywg', '6', 'deleniti');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('7', 'enim', 'itaque', 'herbert30@example.com', 'abxx', 'kocz', 'ewdc', 'ffjf', '8', 'ut');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('8', 'officia', 'molestiae', 'claudie05@example.com', 'bsio', 'ccpc', 'nqjz', 'yjon', '2', 'consequuntur');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('9', 'non', 'quibusdam', 'amckenzie@example.org', 'xjed', 'mvow', 'iqvi', 'nkou', '4', 'exercitationem');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('10', 'rem', 'rem', 'keshaun.hilpert@example.org', 'ioph', 'xctt', 'zxle', 'dejh', '3', 'tempora');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('11', 'vel', 'ut', 'sconnelly@example.org', 'mhdy', 'borx', 'cojc', 'tvni', '5', 'earum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('12', 'illum', 'tempora', 'danny12@example.com', 'tkhx', 'oawc', 'scnm', 'tdml', '1', 'aspernatur');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('13', 'quaerat', 'quia', 'lakin.orlando@example.net', 'vlkr', 'pflc', 'hmte', 'ihhu', '4', 'architecto');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('14', 'pariatur', 'officiis', 'kohler.domenick@example.net', 'zemj', 'cwra', 'rlsz', 'ynbw', '7', 'vitae');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('15', 'sint', 'vero', 'monique.zboncak@example.net', 'jbxq', 'lpuz', 'wnhu', 'hfbq', '3', 'dolores');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('16', 'est', 'vero', 'koss.amparo@example.org', 'xvxx', 'hmoi', 'piic', 'uuqw', '3', 'cumque');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('17', 'voluptatem', 'odio', 'aletha21@example.net', 'newi', 'lotk', 'lutl', 'ccrr', '9', 'odio');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('18', 'magnam', 'itaque', 'jonathan17@example.com', 'afcu', 'jrdj', 'aejl', 'vsrp', '2', 'non');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('19', 'rem', 'fugiat', 'mathilde92@example.com', 'xuqs', 'onfw', 'ntzs', 'wmez', '3', 'perspiciatis');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('20', 'possimus', 'corporis', 'bernice.skiles@example.com', 'jwlg', 'wyvi', 'hyce', 'gmaq', '3', 'pariatur');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('21', 'nemo', 'ea', 'weber.rudolph@example.net', 'ywdk', 'dhlz', 'gwrl', 'ggcb', '5', 'reprehenderit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('22', 'dignissimos', 'voluptatum', 'hkozey@example.org', 'tszb', 'grfq', 'ikxg', 'jwxu', '5', 'accusamus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('23', 'soluta', 'vitae', 'witting.elisabeth@example.net', 'vdoe', 'ains', 'jfwo', 'axcm', '2', 'rerum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('24', 'deserunt', 'laborum', 'joana.crist@example.org', 'sumx', 'biix', 'nval', 'tpyx', '2', 'alias');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('25', 'cumque', 'eaque', 'gcrona@example.org', 'xdhf', 'udvn', 'jhna', 'ullg', '1', 'ut');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('26', 'eligendi', 'aspernatur', 'sfay@example.com', 'jfto', 'ysfp', 'glrh', 'bbax', '1', 'rem');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('27', 'voluptate', 'odit', 'florencio11@example.org', 'qiyn', 'jkif', 'vwrf', 'frhd', '5', 'voluptatum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('28', 'reiciendis', 'et', 'beahan.foster@example.com', 'setx', 'jzen', 'ruqk', 'ujer', '4', 'id');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('29', 'fugit', 'cum', 'nils87@example.net', 'hhbr', 'ogxh', 'girh', 'uvvv', '2', 'corporis');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('30', 'ab', 'at', 'sanford.pascale@example.net', 'dspx', 'sgil', 'peag', 'oezz', '5', 'qui');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('31', 'et', 'iste', 'desmond.price@example.com', 'whvr', 'kzrd', 'mplk', 'jpse', '3', 'alias');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('32', 'libero', 'rem', 'geovanny11@example.com', 'snzx', 'bylg', 'ilgj', 'dzst', '2', 'deleniti');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('33', 'in', 'ullam', 'rodriguez.luna@example.org', 'umau', 'mqqw', 'janc', 'vqal', '1', 'non');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('34', 'voluptate', 'eius', 'yskiles@example.com', 'wfve', 'qbbg', 'hevt', 'hzqx', '7', 'voluptas');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('35', 'natus', 'officia', 'josianne.runte@example.org', 'yous', 'qmhp', 'xdqz', 'wrxd', '3', 'et');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('36', 'quia', 'facere', 'holden.auer@example.org', 'yyxy', 'vlvo', 'mhfp', 'dcpp', '1', 'recusandae');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('37', 'optio', 'nobis', 'bortiz@example.net', 'nmuy', 'vbso', 'dmni', 'vdhl', '8', 'accusamus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('38', 'facilis', 'nostrum', 'maureen.yundt@example.net', 'pjkf', 'mzzc', 'ajrg', 'pidb', '3', 'accusamus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('39', 'qui', 'voluptatibus', 'haskell.steuber@example.net', 'qbtm', 'hgns', 'ynym', 'cgpb', '7', 'nostrum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('40', 'et', 'veritatis', 'steuber.titus@example.com', 'dmxy', 'ygav', 'hpjj', 'ssuh', '6', 'quia');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('41', 'nulla', 'reprehenderit', 'hudson.doug@example.com', 'meev', 'mnwg', 'ctks', 'bwyc', '9', 'ut');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('42', 'voluptatem', 'aliquid', 'lakin.susana@example.net', 'dkfo', 'kswd', 'zjvl', 'yshk', '5', 'repellendus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('43', 'eligendi', 'nemo', 'stephanie14@example.net', 'dgps', 'trgx', 'smgy', 'xuhs', '7', 'maiores');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('44', 'et', 'laborum', 'maybelle52@example.org', 'azas', 'qlsn', 'rwke', 'cmsf', '5', 'ea');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('45', 'sapiente', 'aut', 'tmitchell@example.net', 'mgjf', 'qeeu', 'xuep', 'fdnw', '6', 'nisi');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('46', 'fuga', 'est', 'gabriel56@example.com', 'rtoe', 'oini', 'phdt', 'rbne', '7', 'facere');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('47', 'reprehenderit', 'in', 'nwyman@example.net', 'xvcf', 'jxvl', 'heaj', 'ffqc', '7', 'autem');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('48', 'ipsa', 'est', 'shakira64@example.com', 'yhpb', 'fcmd', 'gkwa', 'ouma', '8', 'et');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('49', 'officia', 'corporis', 'maverick.treutel@example.net', 'owem', 'enrs', 'rlxu', 'gbfo', '7', 'sit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('50', 'eaque', 'expedita', 'una66@example.net', 'szpc', 'zucb', 'wjqg', 'nrga', '2', 'inventore');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('51', 'cumque', 'quos', 'diana71@example.org', 'gpfq', 'pptt', 'aahv', 'izgh', '1', 'in');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('52', 'explicabo', 'qui', 'satterfield.daryl@example.org', 'byyu', 'kmmv', 'lepk', 'ugcv', '9', 'reprehenderit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('53', 'ab', 'reprehenderit', 'mina93@example.org', 'rcmr', 'gfly', 'wtcg', 'upfc', '7', 'beatae');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('54', 'delectus', 'voluptatem', 'monahan.shakira@example.net', 'ciwn', 'pdlk', 'vtnp', 'zmiw', '7', 'deleniti');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('55', 'consectetur', 'sint', 'xhand@example.org', 'teje', 'dyyt', 'tvsk', 'uhin', '1', 'repudiandae');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('56', 'illum', 'cum', 'floy.deckow@example.com', 'undo', 'krqe', 'lueo', 'bnac', '8', 'ducimus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('57', 'dignissimos', 'soluta', 'laney.schaefer@example.com', 'kxuo', 'ujru', 'ueeh', 'jyco', '5', 'sunt');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('58', 'laborum', 'ea', 'anibal53@example.com', 'oxzu', 'hivb', 'ijih', 'inbk', '2', 'voluptate');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('59', 'quisquam', 'sed', 'lacy76@example.com', 'bhra', 'gpca', 'ytbe', 'odbc', '7', 'atque');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('60', 'similique', 'rerum', 'madeline.breitenberg@example.net', 'oton', 'umdm', 'rhrr', 'eoil', '5', 'dolore');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('61', 'est', 'aliquam', 'cruz43@example.net', 'pvnw', 'karl', 'erqn', 'efbp', '9', 'illo');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('62', 'placeat', 'nulla', 'sammy.kub@example.net', 'tfew', 'jbgy', 'qknr', 'fmog', '7', 'iste');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('63', 'aliquam', 'praesentium', 'considine.jazmyne@example.org', 'anww', 'zuqq', 'dgfs', 'qbrv', '7', 'aperiam');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('64', 'similique', 'aut', 'lenore.fritsch@example.net', 'wixh', 'etru', 'qlvz', 'ccbi', '2', 'eius');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('65', 'incidunt', 'est', 'annabelle18@example.org', 'vtik', 'ipyo', 'zlht', 'pqlq', '6', 'ipsam');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('66', 'laboriosam', 'laboriosam', 'durgan.alyce@example.net', 'phes', 'kafq', 'cvtv', 'uhct', '7', 'autem');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('67', 'voluptates', 'nihil', 'vdenesik@example.net', 'ahfu', 'zkog', 'nqcc', 'dsep', '9', 'ducimus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('68', 'ratione', 'libero', 'pkozey@example.org', 'wlrh', 'jgyz', 'rwwc', 'bihe', '4', 'omnis');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('69', 'aut', 'corrupti', 'chanel.volkman@example.com', 'qgjg', 'gaxe', 'etzc', 'xsru', '8', 'itaque');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('70', 'aut', 'necessitatibus', 'marley.gleichner@example.net', 'kawz', 'dfio', 'miaw', 'wgbv', '5', 'officia');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('71', 'ipsa', 'consequatur', 'lelia.kertzmann@example.com', 'bvoc', 'odbw', 'uxuu', 'kxwm', '9', 'et');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('72', 'quo', 'magnam', 'madisen.fadel@example.net', 'ujmc', 'eahs', 'fuyi', 'emer', '2', 'rerum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('73', 'consequuntur', 'qui', 'darrick.schneider@example.org', 'oecw', 'cmrm', 'dyla', 'godr', '4', 'dolorem');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('74', 'cum', 'eum', 'fkutch@example.com', 'enyh', 'ilmz', 'isfd', 'vxbg', '6', 'minima');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('75', 'officiis', 'veritatis', 'mikel.farrell@example.com', 'htre', 'qtgf', 'bjmc', 'qeza', '3', 'temporibus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('76', 'amet', 'quo', 'sid43@example.org', 'ueyp', 'xppm', 'ytcw', 'unrq', '9', 'dolor');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('77', 'autem', 'error', 'bernhard16@example.org', 'hdfk', 'wjfb', 'lrrn', 'mnbr', '1', 'tempore');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('78', 'qui', 'dolores', 'mlubowitz@example.net', 'ztgo', 'tqzd', 'toko', 'kwiv', '5', 'quia');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('79', 'sed', 'enim', 'annette18@example.com', 'lgfn', 'jyja', 'dkgr', 'jpaa', '7', 'suscipit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('80', 'et', 'animi', 'shanny.gerlach@example.com', 'xkjr', 'hpml', 'rdee', 'ihtj', '5', 'aliquid');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('81', 'ut', 'ut', 'smith.serena@example.com', 'jbdp', 'zrqk', 'lplf', 'wqhc', '1', 'placeat');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('82', 'sit', 'nostrum', 'al.steuber@example.org', 'bcrr', 'fzou', 'qegh', 'jrun', '7', 'odit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('83', 'est', 'voluptatem', 'hansen.keira@example.com', 'behx', 'pmfe', 'fpiv', 'hiiq', '3', 'earum');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('84', 'nisi', 'et', 'jluettgen@example.org', 'ftyv', 'gisw', 'nsgq', 'nved', '1', 'blanditiis');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('85', 'itaque', 'sed', 'erdman.modesto@example.org', 'bale', 'ltba', 'xkpc', 'evrg', '1', 'itaque');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('86', 'aut', 'eveniet', 'fatima43@example.net', 'fpcj', 'djui', 'rdza', 'grms', '2', 'fugit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('87', 'aperiam', 'qui', 'tomas.bernier@example.org', 'xpcd', 'niln', 'ngsu', 'wrbb', '7', 'repellendus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('88', 'ad', 'dolor', 'keagan67@example.org', 'rrrb', 'aqtc', 'hewn', 'pybx', '5', 'deserunt');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('89', 'magnam', 'quam', 'bertrand59@example.org', 'hpcz', 'jnme', 'oolt', 'fsiw', '6', 'repellat');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('90', 'quidem', 'odio', 'constance66@example.com', 'ydav', 'sjxp', 'kxkv', 'dkau', '2', 'eos');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('91', 'magnam', 'ut', 'jmccullough@example.org', 'cxdh', 'pvrb', 'hrps', 'bvzl', '4', 'vitae');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('92', 'repudiandae', 'fugit', 'jovan36@example.com', 'cawi', 'luni', 'wmxh', 'khag', '7', 'repellat');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('93', 'voluptates', 'id', 'dustin.marvin@example.com', 'phtx', 'knub', 'gwij', 'wfkl', '5', 'est');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('94', 'voluptates', 'modi', 'rex.zieme@example.com', 'anwl', 'yqvi', 'arqs', 'pocs', '1', 'ducimus');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('95', 'nulla', 'est', 'gisselle75@example.com', 'nway', 'hegf', 'quss', 'uonk', '7', 'esse');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('96', 'repellendus', 'excepturi', 'khuels@example.com', 'pnip', 'jeqk', 'jpde', 'pmfo', '4', 'assumenda');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('97', 'tempora', 'similique', 'uharber@example.org', 'xqck', 'sltb', 'pmnt', 'ties', '6', 'quis');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('98', 'fuga', 'repellendus', 'stephon72@example.com', 'wdbb', 'auas', 'xvvd', 'ajbn', '2', 'est');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('99', 'voluptatibus', 'placeat', 'pearline73@example.org', 'vdkd', 'rgzb', 'wpff', 'xqfk', '1', 'sit');
+            INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('100', 'voluptas', 'sunt', 'katelyn79@example.org', 'kabo', 'plip', 'deie', 'hfjp', '6', 'ut');</sql>
+    </changeSet>
+
+
+</databaseChangeLog>

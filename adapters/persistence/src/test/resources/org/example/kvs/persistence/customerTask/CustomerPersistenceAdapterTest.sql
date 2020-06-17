@@ -1,0 +1,1 @@
+INSERT INTO kunde (kundenid, vorname, nachname, email, strasse, strassenzusatz, ort, land, plz, firmenname) VALUES ('101', 'aut', 'cumque', 'mckenziea.lelaa@examplee.org', 'mbwi', 'vvxt', 'abmz', 'ecar', '2', 'a');
