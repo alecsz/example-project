@@ -30,6 +30,9 @@ class CustomerPersistenceAdapterTest {
     void readCustomer(){
         LoadCustomerPort.LoadCustomerPortModel loadCustomerPortModel = underTest.loadCustomerById(1);
         assertNotNull(loadCustomerPortModel);
+        assertEquals(1, loadCustomerPortModel.getId());
+        assertEquals("aut", loadCustomerPortModel.getVorname());
+
     }
 
 

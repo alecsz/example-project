@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-public interface CustomerJpaRepository extends JpaRepository<CustomerJpaRepository.CustomerJpaEntity, BigDecimal> {
+public interface CustomerJpaRepository extends JpaRepository<CustomerJpaRepository.CustomerJpaEntity, Integer> {
 
     @NoArgsConstructor
     @AllArgsConstructor
