@@ -33,7 +33,6 @@
         <module>domain</module>
         <module>ports/api-in</module>
         <module>ports/api-out</module>
-        <module>adapters/logging</module>
     </modules>
 
     <dependencyManagement>

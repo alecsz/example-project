@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="andreisava">
+        <comment>create auftraege table</comment>
+        <createTable tableName="exportdatastatistics">
+            <column name="id" type="numeric">
+                <constraints primaryKey="true" primaryKeyName="PK_EXPORT_DATA_STATISTICS"
+                             nullable="false" />
+            </column>
+            <column name="lastexport" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numberofrecords" type="numeric">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="andreisava">
+        <comment>create sequence for exportdatastatistics table</comment>
+        <createSequence sequenceName="SEQ_EXPORT_DATA_STATISTICS" cycle="false" incrementBy="50" startValue="5"/>
+    </changeSet>
+
+</databaseChangeLog>

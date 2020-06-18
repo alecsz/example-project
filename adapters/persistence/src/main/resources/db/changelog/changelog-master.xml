@@ -7,6 +7,7 @@
 
     <include file="customer/master.xml" relativeToChangelogFile="true"/>
     <include file="customerTask/master.xml" relativeToChangelogFile="true"/>
+    <include file="exportDataStatistics/master.xml" relativeToChangelogFile="true"/>
 
 
 

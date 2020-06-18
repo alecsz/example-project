@@ -22,4 +22,13 @@ public interface ExportCustomerInformationsUseCase {
     }
 
     List<ExportCustomerData> exportCustomerData(LocalDateTime dateTime);
+
+    @Value
+    class ExportDataStatistics {
+       LocalDateTime lastExport;
+       int numberOfRecords;
+    }
+
+    ExportDataStatistics getSchedulerLastExport();
+    void saveSchedulerLastExport(ExportDataStatistics exportDataStatistics);
 }

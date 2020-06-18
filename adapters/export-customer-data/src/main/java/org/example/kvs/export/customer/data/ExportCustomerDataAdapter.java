@@ -26,14 +26,21 @@ class ExportCustomerDataAdapter {
 
     @Scheduled(fixedDelay = 10000L, initialDelay = 10L)
     public void startExport(){
-        LocalDateTime dateTime = LocalDateTime.of(2019, 01, 01, 00 ,00);
+        LocalDateTime dateTime = getLastExportDate();
         log.info("start export ..." );
         log.info("last export date was: " + dateTime.toString());
         List<ExportCustomerInformationsUseCase.ExportCustomerData> exportCustomerData = exportCustomerInformationsUseCase.exportCustomerData(dateTime);
         exportCustomerData.forEach(c -> log.info("Customer: " + c.toString()));
-        assert exportCustomerData.size() > 0;
-        writeCSVFile(exportCustomerData.get(0).getLand() + LocalDateTime.now() + ".csv", exportCustomerData);
+        if( exportCustomerData.size() > 0) {
+            writeCSVFile(exportCustomerData.get(0).getLand() + LocalDateTime.now() + ".csv", exportCustomerData);
+        }
+        exportCustomerInformationsUseCase.saveSchedulerLastExport(new ExportCustomerInformationsUseCase.ExportDataStatistics(LocalDateTime.now(), exportCustomerData.size()));
+        log.info(exportCustomerData.size() + " records were exported ...");
         log.info("finish export ...");
+    }
+
+    private LocalDateTime getLastExportDate() {
+        return exportCustomerInformationsUseCase.getSchedulerLastExport() != null ? exportCustomerInformationsUseCase.getSchedulerLastExport().getLastExport() : LocalDateTime.of(1900, 01, 01, 00 ,00);
     }
 
     static void writeCSVFile(String csvFileName, List<ExportCustomerInformationsUseCase.ExportCustomerData> data) {
