@@ -26,6 +26,7 @@
 
     <modules>
         <module>adapters/persistence</module>
+        <module>adapters/export-customer-data</module>
         <module>application</module>
         <module>configuration</module>
         <module>common</module>
@@ -62,6 +63,16 @@
                 <artifactId>mockito-junit-jupiter</artifactId>
                 <version>3.2.4</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
             </dependency>
 
 
@@ -107,6 +118,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

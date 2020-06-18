@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="export-customer-data" />
         <module name="logging" />
         <module name="api-out" />
         <module name="api-in" />
@@ -26,6 +27,7 @@
       <module name="common" options="-parameters" />
       <module name="configuration" options="-parameters" />
       <module name="domain" options="-parameters" />
+      <module name="export-customer-data" options="-parameters" />
       <module name="logging" options="-parameters" />
       <module name="persistence" options="-parameters" />
     </option>
