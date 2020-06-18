@@ -18,4 +18,6 @@ public interface LoadCustomerTaskPort {
     }
 
     List<LoadCustomerTaskPortModel> loadCustomerTasksByLastChange();
+
+    LoadCustomerTaskPortModel loadCustomerTaskById(int id);
 }

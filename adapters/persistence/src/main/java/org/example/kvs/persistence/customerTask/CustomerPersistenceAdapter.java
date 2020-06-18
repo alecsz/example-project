@@ -24,15 +24,31 @@ class CustomerPersistenceAdapter implements LoadCustomerPort, LoadCustomerTaskPo
         return map(customerJpaRepository.findById(id));
     }
 
-    private LoadCustomerPortModel map(Optional<CustomerJpaRepository.CustomerJpaEntity> toMap) {
-        CustomerJpaRepository.CustomerJpaEntity entity = toMap.get();
-        return new LoadCustomerPortModel(entity.getId(), entity.getVorname(), entity.getNachname(), entity.getEmail(), entity.getStrasse(), entity.getStrassenzusatz(), entity.getOrt(), entity.getLand(), entity.getPlz(), entity.getFirmenName());
-    }
-
     @Override
     public List<LoadCustomerTaskPortModel> loadCustomerTasksByLastChange() {
         //TODO
         return null;
+    }
+
+    @Override
+    public LoadCustomerTaskPortModel loadCustomerTaskById(int id) {
+        return mapToCustomerTaskPortModel(customerTaskJpaRepository.findById(String.valueOf(id)));
+    }
+
+    private LoadCustomerTaskPortModel mapToCustomerTaskPortModel(Optional<CustomerTaskJpaRepository.CutomerTaskJpaEntity> toMap) {
+        CustomerTaskJpaRepository.CutomerTaskJpaEntity entity = toMap.orElse(null);
+        assert entity != null;
+        return new LoadCustomerTaskPortModel(entity.getId(), entity.getArtikelNummer(), entity.getCreated(), entity.getLastChange(), map(entity.getCustomer()));
+    }
+
+    private LoadCustomerPortModel map(CustomerJpaRepository.CustomerJpaEntity entity) {
+        return new LoadCustomerPortModel(entity.getId(), entity.getVorname(), entity.getNachname(), entity.getEmail(), entity.getStrasse(), entity.getStrassenzusatz(), entity.getOrt(), entity.getLand(), entity.getPlz(), entity.getFirmenName());
+    }
+
+    private LoadCustomerPortModel map(Optional<CustomerJpaRepository.CustomerJpaEntity> toMap) {
+        CustomerJpaRepository.CustomerJpaEntity entity = toMap.orElse(null);
+        assert entity != null;
+        return map(entity);
     }
 
 

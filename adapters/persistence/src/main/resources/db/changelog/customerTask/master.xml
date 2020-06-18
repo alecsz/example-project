@@ -20,7 +20,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="kundeid" type="varchar(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" foreignKeyName="PK_CUSTOMER"/>
             </column>
 
         </createTable>

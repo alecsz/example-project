@@ -7,8 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
 
-public interface CustomerTaskJpaRepository extends JpaRepository<CustomerTaskJpaRepository.CutomerTaskJpaEntity, BigDecimal> {
+public interface CustomerTaskJpaRepository extends JpaRepository<CustomerTaskJpaRepository.CutomerTaskJpaEntity, String> {
 
     @NoArgsConstructor
     @AllArgsConstructor
@@ -26,7 +28,7 @@ public interface CustomerTaskJpaRepository extends JpaRepository<CustomerTaskJpa
         @Column(name = "LASTCHANGE")
         String lastChange;
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "KUNDENID")
+        @JoinColumn(name = "KUNDEID")
         CustomerJpaRepository.CustomerJpaEntity customer;
     }
 }
