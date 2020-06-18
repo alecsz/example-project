@@ -3,6 +3,7 @@ package org.example.kvs.port.in.export;
 import lombok.Value;
 
 import java.io.File;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ExportCustomerInformationsUseCase {
@@ -20,5 +21,5 @@ public interface ExportCustomerInformationsUseCase {
         int kundenID;
     }
 
-    List<ExportCustomerData> exportCustomerData();
+    List<ExportCustomerData> exportCustomerData(LocalDateTime dateTime);
 }

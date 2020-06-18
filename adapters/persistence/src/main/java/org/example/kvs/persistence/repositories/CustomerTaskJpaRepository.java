@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 public interface CustomerTaskJpaRepository extends JpaRepository<CustomerTaskJpaRepository.CutomerTaskJpaEntity, String> {
 
@@ -24,11 +25,13 @@ public interface CustomerTaskJpaRepository extends JpaRepository<CustomerTaskJpa
         @Column(name = "ARTIKELNUMMER")
         String artikelNummer;
         @Column(name = "CREATED")
-        String created;
+        Timestamp created;
         @Column(name = "LASTCHANGE")
-        String lastChange;
+        Timestamp lastChange;
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "KUNDEID")
         CustomerJpaRepository.CustomerJpaEntity customer;
     }
+
+    List<CustomerTaskJpaRepository.CutomerTaskJpaEntity> findByLastChangeGreaterThan(Timestamp date2);
 }

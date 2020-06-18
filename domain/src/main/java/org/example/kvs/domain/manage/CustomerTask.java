@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 
 @Getter
 @EqualsAndHashCode
@@ -18,10 +19,8 @@ public class CustomerTask {
     @Size(max = 255)
     String artikelNummer;
     @NotNull
-    @Size(max = 255)
-    String created;
+    LocalDateTime created;
     @NotNull
-    @Size(max = 255)
-    String lastChange;
+    LocalDateTime lastChange;
     int customerId;
 }
